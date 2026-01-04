@@ -2,7 +2,16 @@
 <html dir="rtl" lang="ar">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>القوائم الذكية لتسديد رسوم الخدمات الحكومية</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="القوائم الذكية لتسديد رسوم الخدمات الحكومية">
+    <meta property="og:description" content="توفر حكومة دولة الإمارات خيارات متعددة لتسهيل دفع رسوم الخدمات الحكومية. فإلى جانب خيار الدفع نقداً عند مكتب تقديم الخدمة، يمكن الدفع إلكترونياً وعن طريق الأجهزة الذكية في معظم الجهات الحكومية المحلية والاتحادية، بشكل آمن وفعال.">
+    <meta property="og:image" content="https://alkhaleeg.services/sadu/logo.png">
+    <meta property="og:url" content="https://alkhaleeg.services/sadu/">
+    <meta property="og:type" content="website">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,10 +20,50 @@
             padding: 20px;
             line-height: 1.8;
             margin: 0;
+            max-width: 100%;
+            box-sizing: border-box;
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+                font-size: 14px;
+            }
+            h1, h2 {
+                font-size: 22px;
+            }
+            .btn-green {
+                width: 90%;
+                font-size: 14px;
+                padding: 10px;
+            }
+            .footer img {
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                font-size: 13px;
+            }
+            h1, h2 {
+                font-size: 20px;
+            }
+            .btn-green {
+                width: 95%;
+                font-size: 13px;
+                padding: 8px;
+            }
+            .feedback-icons span {
+                font-size: 24px;
+            }
+        }
+
         h1, h2 {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 25px;
             margin-bottom: 15px;
         }
         p {
@@ -39,12 +88,21 @@
             text-decoration: underline;
         }
         hr {
-            margin: 40px 0;
+            margin: 30px 0;
             border: 0;
             border-top: 1px solid #ccc;
         }
         .section {
             margin: 30px 0;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            height: 50px;
+            vertical-align: middle;
+            margin-right: 10px;
         }
         .footer {
             background: #333;
@@ -89,7 +147,10 @@
 </head>
 <body>
 
-<h1>القوائم الذكية لتسديد رسوم الخدمات الحكومية</h1>
+<div class="header">
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDEwMCAxMDAiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBmaWxsPSIjRkZGIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMzUiIGZpbGw9IiMzMzMiLz48dGV4dCB4PSI1MCIgeT0iNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZmlsbD0iI0ZGRiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+VEVSQTwvdGV4dD48L3N2Zz4=" alt="شعار الموقع">
+    <h1>القوائم الذكية لتسديد رسوم الخدمات الحكومية</h1>
+</div>
 
 <p>توفر حكومة دولة الإمارات خيارات متعددة لتسهيل دفع رسوم الخدمات الحكومية. فإلى جانب خيار الدفع نقداً عند مكتب تقديم الخدمة، يمكن الدفع إلكترونياً وعن طريق الأجهزة الذكية في معظم الجهات الحكومية المحلية والاتحادية، بشكل آمن وفعال. تستعرض هذه الصفحة معلومات عن خيارات الدفع المختلفة.</p>
 
@@ -244,4 +305,4 @@
 </div>
 
 </body>
-  </html>
+</html>
