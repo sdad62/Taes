@@ -3,76 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول - بنك دبي الإسلامي</title>
+    <title>Dubai Islamic Bank - Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Tajawal', sans-serif; background-color: #f9f9f9; }
-        .gradient-btn {
-            background: linear-gradient(to bottom, #d32f2f, #9b1c1c);
-        }
-        .input-shadow {
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-        }
+        body { font-family: 'Tajawal', sans-serif; background-color: #fcfcfc; }
+        .border-custom { border-color: #e5e7eb; }
+        .text-dib-green { color: #007041; }
+        .bg-dib-light { background-color: #f0f7f4; }
     </style>
 </head>
-<body class="min-h-screen">
+<body class="flex flex-col min-h-screen">
 
-    <header class="bg-white p-4 flex flex-col items-center border-b border-gray-100">
-        <div class="w-full flex justify-between items-center max-w-lg">
-            <div class="flex items-center gap-2">
-                <span class="text-xs text-gray-400">alt</span>
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/90/Dubai_Islamic_Bank_logo.svg/2560px-Dubai_Islamic_Bank_logo.svg.png" alt="DIB Logo" class="h-8">
+    <header class="bg-white border-b border-gray-200 p-4">
+        <div class="flex justify-between items-center max-w-xl mx-auto">
+            <div class="flex items-center gap-1">
+                <span class="text-[10px] text-gray-400 font-bold">alt</span>
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/90/Dubai_Islamic_Bank_logo.svg/2560px-Dubai_Islamic_Bank_logo.svg.png" alt="DIB Logo" class="h-7">
             </div>
         </div>
-        <nav class="flex gap-8 mt-6 text-gray-600 font-medium">
-            <a href="#" class="pb-2 border-b-2 border-transparent hover:text-green-700">الأمان</a>
-            <a href="#" class="pb-2 border-b-2 border-transparent hover:text-green-700">لمعرفة المزيد</a>
-        </nav>
+        <div class="flex justify-center gap-10 mt-6 text-sm font-medium text-gray-600">
+            <a href="#" class="hover:text-dib-green">الأمان</a>
+            <a href="#" class="hover:text-dib-green">لمعرفة المزيد</a>
+        </div>
     </header>
 
-    <div class="bg-white p-4 text-center text-[13px] text-gray-600 border-b border-gray-100 leading-relaxed">
+    <div class="bg-white text-center py-4 px-6 text-[12.5px] text-gray-500 leading-relaxed border-b border-gray-100">
         يرجى إيقاف تشغيل "الوضع البسيط" في إعداد جوجل كروم حتى تتمكن الخدمات المصرفية عبر الإنترنت من العمل بشكل صحيح في جهازك
     </div>
 
-    <main class="max-w-md mx-auto p-4 mt-4">
-        <div class="flex justify-center mb-6">
-            <img src="https://static.wixstatic.com/media/ec1d5e_580e00a09fbe4576bed9ffc210f9167c~mv2.jpg" alt="Promotion" class="rounded-lg shadow-sm w-full h-auto">
+    <main class="max-w-md mx-auto p-4 w-full">
+        <div class="mb-4">
+            <img src="https://static.wixstatic.com/media/ec1d5e_580e00a09fbe4576bed9ffc210f9167c~mv2.jpg/v1/crop/x_0,y_340,w_1080,h_650/fill/w_500,h_300,al_c,q_80/promo.jpg" 
+                 class="w-full rounded-md shadow-sm" alt="Promotion">
         </div>
 
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-            <div class="bg-[#f0f7f4] p-6 flex flex-col items-center border-b border-gray-50">
-                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-4">
-                    <svg class="w-8 h-8 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+        <form id="dibForm">
+        <div class="bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden">
+            <div class="bg-dib-light p-6 flex flex-col items-center">
+                <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-3">
+                    <svg class="w-7 h-7 text-dib-green" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                    </svg>
                 </div>
-                <h2 class="text-green-700 font-bold text-lg">الإسلامي أون لاين</h2>
-                <p class="text-gray-500 text-sm mt-1">* يرجى إدخال رقم البطاقة المكون من 16 رقم</p>
+                <h2 class="text-dib-green font-bold text-lg">الإسلامي أون لاين</h2>
+                <p class="text-gray-500 text-[12px] mt-1">* يرجى إدخال رقم البطاقة المكون من 16 رقم</p>
             </div>
 
-            <div class="p-6 space-y-4">
-                <form id="dibForm">
-                    <input type="text" id="cardNumber" class="w-full p-4 bg-[#f8fcfb] border border-gray-100 rounded-md text-right focus:outline-none focus:ring-1 focus:ring-green-600" placeholder="رقم البطاقة">
-                    
-                    <p class="text-gray-500 text-sm text-center">* يرجى إدخال الرقم السري للبطاقة المكون من 4 أرقام</p>
-                    <input type="password" id="pin" class="w-full p-4 bg-[#f8fcfb] border border-gray-100 rounded-md text-right focus:outline-none focus:ring-1 focus:ring-green-600" placeholder="الرقم السري">
+            <div class="p-5 space-y-4">
+                <input type="text" id="cardNumber" class="w-full p-3 bg-gray-50 border border-gray-200 rounded text-right focus:outline-none focus:border-dib-green" placeholder="">
+                
+                <p class="text-gray-500 text-[12px] text-center mt-2">* يرجى إدخال الرقم السري للبطاقة المكون من 4 أرقام</p>
+                <input type="password" id="pin" class="w-full p-3 bg-gray-50 border border-gray-200 rounded text-right focus:outline-none focus:border-dib-green" placeholder="">
 
-                    <p class="text-[11px] text-gray-500 text-center leading-relaxed mt-4">
-                        بتسجيل الدخول ، أوافق على الشروط والأحكام وبيان الحقائق الرئيسية للراتب المقدم سلفاً. كما أنني أتنازل بشكل نهائي وغير مشروط عن فترة الانتظار 
-                        <a href="#" class="text-blue-700 underline">الأحكام والشروط</a>
-                    </p>
+                <p class="text-[10.5px] text-gray-400 text-center leading-5 mt-4">
+                    بتسجيل الدخول ، أوافق على الشروط والأحكام وبيان الحقائق الرئيسية للراتب المقدم سلفاً. كما أنني أتنازل بشكل نهائي وغير مشروط عن فترة الانتظار 
+                    <a href="#" class="text-blue-800 underline">الأحكام والشروط</a>
+                </p>
 
-                    <button type="submit" class="w-full p-3 border border-green-700 text-green-700 rounded-md font-bold hover:bg-green-50 transition-colors mt-4">
-                        الدخول
-                    </button>
-                </form>
+                <button type="submit" class="w-full py-2.5 border border-dib-green text-dib-green rounded font-bold hover:bg-green-50 transition-all mt-4">
+                    الدخول
+                </button>
             </div>
         </div>
+        </form>
 
-        <div class="text-center my-6 text-gray-400 text-sm">OR</div>
+        <div class="text-center my-5 text-gray-400 text-xs font-bold">OR</div>
 
-        <button class="w-full p-3 border-2 border-black rounded-full flex items-center justify-center gap-2 mb-10">
-            <span class="font-bold">تسجيل الدخول بالهوية الرقمية</span>
-            <div class="w-6 h-6 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full flex items-center justify-center text-[8px] text-white">UAE</div>
+        <button class="w-full py-3 border-2 border-black rounded-full flex items-center justify-center gap-2 mb-8 bg-white">
+            <span class="font-bold text-[15px]">تسجيل الدخول بالهوية الرقمية</span>
+            <div class="w-6 h-6 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-[7px] text-white font-bold">UAE</div>
         </button>
     </main>
 
