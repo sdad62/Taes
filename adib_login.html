@@ -16,7 +16,7 @@
         body {
             font-family: Arial, sans-serif;
             color: #333;
-            background: #f9f9f9;
+            background: #ffffff;
             padding: 20px;
             line-height: 1.8;
             margin: 0;
@@ -36,7 +36,7 @@
             .form-container {
                 padding: 20px;
             }
-            .btn-blue {
+            .btn-login {
                 width: 90%;
                 font-size: 14px;
                 padding: 10px;
@@ -54,7 +54,7 @@
             .form-container {
                 padding: 15px;
             }
-            .btn-blue {
+            .btn-login {
                 width: 95%;
                 font-size: 13px;
                 padding: 8px;
@@ -68,7 +68,8 @@
         .header img {
             height: 60px;
             vertical-align: middle;
-            margin-right: 10px;
+            margin: 0 auto;
+            display: block;
         }
         h2 {
             text-align: center;
@@ -81,47 +82,61 @@
         .greeting-line1 {
             display: block;
             margin: 0;
+            font-size: 22px;
+            line-height: 1.4;
         }
         .greeting-line2 {
             display: block;
             margin: 0;
             font-size: 28px;
+            font-weight: 700;
+            line-height: 1.3;
         }
         .form-container {
             background: white;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 0;
+            box-shadow: none;
             max-width: 500px;
             margin: 20px auto;
+            text-align: center;
         }
         label {
             display: block;
-            margin: 10px 0 5px;
+            margin: 5px 0 5px;
             font-weight: bold;
+            text-align: right;
         }
         input[type="text"] {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #008000;
-            border-radius: 8px;
-            background: #fff9f0;
-            font-size: 18px; /* ↑ تم زيادة الحجم */
+            height: 40px;
+            padding: 0 12px;
+            border: 2px solid #ccc;
+            border-radius: 0;
+            background: white;
+            font-size: 16px;
             box-sizing: border-box;
+            outline: none;
         }
-        .btn-blue {
+        input[type="text"]:focus {
+            border-color: #008000;
+        }
+        .btn-login {
             display: block;
             width: 100%;
-            margin: 25px auto;
-            padding: 12px;
+            height: 45px;
+            margin: 30px auto 25px;
+            padding: 0;
             background: #008000;
             color: white;
             text-align: center;
-            border-radius: 0; /* ↑ تم إزالة التقويس */
+            border-radius: 0;
             text-decoration: none;
             font-weight: bold;
             font-size: 16px;
             cursor: pointer;
+            border: none;
+            line-height: 45px;
         }
         .error-message {
             display: none;
@@ -151,7 +166,7 @@
         <label for="pin">رمز (PIN) الخاصة بأجهزة السعر الفوري</label>
         <input type="password" id="pin" name="pin" required minlength="4" maxlength="6" title="رقم PIN بين 4 و6 أرقام">
 
-        <button type="submit" class="btn-blue">تسجيل الدخول</button>
+        <button type="submit" class="btn-login">تسجيل الدخول</button>
         <div class="error-message" id="errorMessage"></div>
     </form>
 </div>
