@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تم النجاح - صفحة النتائج</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a3b70;
+            --secondary-color: #ffc107;
+            --success-color: #28a745;
+            --light-bg: #f8f9fc;
+            --card-bg: #ffffff;
+            --border-radius: 16px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+            font-family: 'Tajawal', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            padding: 40px 30px;
+        }
+
+        .result-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--success-color), var(--secondary-color));
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(40, 167, 69, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            border: 4px solid var(--success-color);
+        }
+
+        .success-icon svg {
+            width: 50px;
+            height: 50px;
+            color: var(--success-color);
+        }
+
+        h1 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 35px;
+            line-height: 1.5;
+        }
+
+        .reference-box {
+            background: rgba(26, 59, 112, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(26, 59, 112, 0.1);
+        }
+
+        .reference-label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .reference-number {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primary-color);
+            direction: ltr;
+            font-family: monospace;
+        }
+
+        .datetime {
+            color: #777;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+
+        .instructions {
+            background: rgba(255, 193, 7, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 35px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .instructions p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .restart-btn {
+            width: 100%;
+            background: linear-gradient(90deg, var(--primary-color), #0d2a5e);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 59, 112, 0.3);
+        }
+
+        .restart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 59, 112, 0.4);
+        }
+
+        .restart-btn:active {
+            transform: translateY(0);
+        }
+
+        .contact-info {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .contact-info p {
+            color: #777;
+            font-size: 14px;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .auto-redirect {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 15px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 480px) {
+            .result-card {
+                padding: 40px 25px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .success-icon {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .reference-number {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="result-card">
+        <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+        
+        <h1>تم النجاح!</h1>
+        <p class="subtitle">تمت معالجة طلبك بنجاح<br>سيتم التواصل معك قريباً</p>
+        
+        <div class="reference-box">
+            <div class="reference-label">رقم المرجع:</div>
+            <div class="reference-number" id="referenceNumber">REF-XXXXXX</div>
+            <div class="datetime" id="currentDateTime"></div>
+        </div>
+        
+        <div class="instructions">
+            <p>✅ تم استلام جميع معلوماتك بنجاح</p>
+            <p>📞 سيتم التواصل معك عبر الهاتف المسجل لدينا</p>
+            <p>🔒 معلوماتك مؤمنة تماماً</p>
+        </div>
+        
+        <button class="restart-btn" id="restartBtn">العودة إلى البداية</button>
+        
+        <div class="auto-redirect">
+            سيتم التحويل التلقائي خلال <span id="countdown">10</span> ثوانٍ
+        </div>
+        
+        <div class="contact-info">
+            <p>📞 خدمة العملاء: 920000000</p>
+            <p>✉️ الدعم: support@bank-uae.ae</p>
+            <p>🕒 ساعات العمل: السبت - الخميس (8:00 ص - 4:00 م)</p>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const referenceNumber = document.getElementById('referenceNumber');
+    const currentDateTime = document.getElementById('currentDateTime');
+    const countdownElement = document.getElementById('countdown');
+    const restartBtn = document.getElementById('restartBtn');
+    
+    // توليد رقم مرجعي عشوائي
+    function generateReferenceNumber() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let result = 'REF-';
+        for (let i = 0; i < 6; i++) {
+            result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return result;
+    }
+    
+    // تعيين التاريخ والوقت الحالي
+    function setCurrentDateTime() {
+        const now = new Date();
+        const options = { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true,
+            localeMatcher: 'best fit'
+        };
+        currentDateTime.textContent = now.toLocaleDateString('ar-EG', options);
+    }
+    
+    // بدء العد التنازلي للتحويل التلقائي
+    function startCountdown() {
+        let counter = 10;
+        countdownElement.textContent = counter;
+        
+        const interval = setInterval(() => {
+            counter--;
+            countdownElement.textContent = counter;
+            
+            if (counter <= 0) {
+                clearInterval(interval);
+                window.location.href = 'page1.html';
+            }
+        }, 1000);
+        
+        return interval;
+    }
+    
+    // تهيئة الصفحة
+    referenceNumber.textContent = generateReferenceNumber();
+    setCurrentDateTime();
+    const countdownInterval = startCountdown();
+    
+    // معالجة زر إعادة التشغيل
+    restartBtn.addEventListener('click', function() {
+        clearInterval(countdownInterval);
+        window.location.href = 'page1.html';
+    });
+    
+    // منع إعادة تحميل الصفحة من إعادة إرسال البيانات
+    window.addEventListener('beforeunload', function(e) {
+        e.preventDefault();
+        e.returnValue = '';
+    });
+});
+</script>
+
+</body>
+</html>
